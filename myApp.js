@@ -9,6 +9,6 @@ app.get( '/', ( req, res )=>{
     
 });
 
-app.use( express.static(__dirname+'/public') );
+app.use( express.static( path.join( __dirname, 'public' ) ) );
 
 module.exports = app;
