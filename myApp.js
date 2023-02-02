@@ -38,8 +38,8 @@ app.get( '/json', (req, res)=>{
 
 });
 
-app.get( '/:word', (req, res, next)=>{
-        res.json( {"echo": req.params.word} );
+app.get( '/parametro/:valor/parametro2/:valor2', (req, res, next)=>{
+        res.json( req.params );
         next();
 });
 
