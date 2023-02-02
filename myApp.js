@@ -14,7 +14,7 @@ app.get( '/now', (req, res, next)=>{
 app.use( (req, res, next)=>{
         const { method, path, ip } = req;
         const respuesta = `${method} ${path} - ${ip}`;
-        console.log(respuesta);
+        console.log(respuesta);        
         next();
 });
 
@@ -36,6 +36,11 @@ app.get( '/json', (req, res)=>{
         }
         res.json({"message": mensaje});
 
+});
+
+app.get( '/:word', (req, res, next)=>{
+        res.json( {"echo": req.params.word} );
+        next();
 });
 
 module.exports = app;
