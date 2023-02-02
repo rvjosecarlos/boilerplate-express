@@ -1,9 +1,15 @@
+const { MESSAGE_STYLE } = require('dotenv').config().parsed;
 let express = require('express');
 let app = express();
 
 console.log("Hello World");
 
-app.use( express.static( __dirname + '/public' ) );
+app.use( (req, res, next)=>{
+        const { method, path, ip } = req;
+        const respuesta = `${method} ${path} - ${ip}`;
+        console.log(respuesta);
+        next();
+});
 
 app.get( '/', ( req, res )=>{
 
@@ -15,7 +21,13 @@ app.use( "/public", express.static( __dirname + '/public' ) );
 
 app.get( '/json', (req, res)=>{
 
-        res.json({"message": "Hello json"});
+        const mensaje = "Hello json";
+
+        if( MESSAGE_STYLE === 'uppercase' ){
+                res.json({"message": mensaje.toUpperCase()});
+                return;
+        }
+        res.json({"message": mensaje});
 
 });
 
