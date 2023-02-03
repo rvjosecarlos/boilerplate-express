@@ -53,7 +53,7 @@ app.route( '/name' )
                 next();
         } )
         .post( (req, res, next)=>{
-                res.json(req.query);
+                res.json(req.body);
                 next();
         } );
 
