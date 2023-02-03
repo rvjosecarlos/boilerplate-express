@@ -53,7 +53,8 @@ app.route( '/name' )
                 next();
         } )
         .post( (req, res, next)=>{
-                res.json(req.body);
+                const { first, last } = req.body;
+                res.json( { name: `${first} ${last}` } );
                 next();
         } );
 
