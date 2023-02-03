@@ -45,7 +45,8 @@ app.get( '/parametro/:valor/parametro2/:valor2', (req, res, next)=>{
 
 app.route( '/name' )
         .get( ( req, res, next )=>{
-                res.json( { first: req.query.first } );
+                const { first, last } = req.query;
+                res.json( { name: `${first} ${last}` } );
                 next();
         } )
         .post( (req, res, next)=>{
