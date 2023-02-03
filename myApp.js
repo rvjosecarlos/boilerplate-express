@@ -1,8 +1,11 @@
 //const { MESSAGE_STYLE } = require('dotenv').config().parsed;
+const bodyParser = require('body-parser');
 let express = require('express');
 let app = express();
 
 console.log("Hello World");
+
+app.use( bodyParser.urlencoded( { extended: true } ) );
 
 app.get( '/now', (req, res, next)=>{
         req.time = new Date().toString();
