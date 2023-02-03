@@ -43,4 +43,14 @@ app.get( '/parametro/:valor/parametro2/:valor2', (req, res, next)=>{
         next();
 });
 
+app.route( '/name' )
+        .get( ( req, res, next )=>{
+                res.json(req.query);
+                next();
+        } )
+        .post( (req, res, next)=>{
+                res.json(req.query);
+                next();
+        } );
+
 module.exports = app;
